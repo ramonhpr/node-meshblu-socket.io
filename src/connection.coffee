@@ -107,6 +107,9 @@ class Connection extends ProxySocket
 
   whoami: (callback) =>
     @_socket.send 'whoami', {}, callback
+    
+  data: (data, callback) =>
+    @_socket.send 'data', data, callback
 
   _assertNoSrv: ({service, domain, secure}) =>
     throw new Error('resolveSrv is set to false, but received domain')  if domain?
